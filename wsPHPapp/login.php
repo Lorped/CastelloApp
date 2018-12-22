@@ -48,7 +48,13 @@ if (isset($postdata) && $email != "" && $password !="" ) {
 
     $Result = mysql_query($MySql);
     if ( $res = mysql_fetch_array($Result,MYSQL_ASSOC)   ) {
-      $output = json_encode($res);
+
+      $newout = [
+        "status" => 'success' ,
+        "user" => $res 
+      ];
+
+      $output = json_encode($newout);
       echo $output;
     } else {
         header("HTTP/1.1 404 Not Found");

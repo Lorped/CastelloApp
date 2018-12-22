@@ -40,7 +40,7 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push('HomePage');
+      this.navCtrl.push('TabsPage');
     }, (err) => {
       //this.navCtrl.push(HomePage);
       // Unable to log in

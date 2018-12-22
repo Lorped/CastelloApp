@@ -1,19 +1,25 @@
 import { Component } from '@angular/core';
+import { IonicPage, NavController } from 'ionic-angular';
 
-import { LogPage } from '../log/log';
-import { OggettiPage } from '../oggetti/oggetti';
-import { HomePage } from '../home/home';
+/**
+ * Generated class for the TabsPage tabs.
+ *
+ * See https://angular.io/docs/ts/latest/guide/dependency-injection.html for
+ * more info on providers and Angular DI.
+ */
 
+@IonicPage()
 @Component({
+  selector: 'page-tabs',
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = OggettiPage;
-  tab3Root = LogPage;
+  homeRoot = 'HomePage'
+  oggettiRoot = 'OggettiPage'
+  logRoot = 'LogPage'
 
-  constructor() {
 
-  }
+  constructor(public navCtrl: NavController) {}
+
 }
