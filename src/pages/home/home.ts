@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { User } from '../../providers';
+import { User, DatiUtente } from '../../providers';
 
 /**
  * Generated class for the HomePage page.
@@ -17,11 +17,20 @@ import { User } from '../../providers';
 })
 export class HomePage {
 
-  
+  mieidati: DatiUtente;
+
+  myimg = 'assets/imgs/nopicture.gif'
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public user: User ) {
+
+      this.mieidati=this.user.getinfo();
+      console.log(this.mieidati);
+
+      if (this.mieidati.URLimg != "nopicture.gif") {
+        this.myimg = "https://www.roma-by-night.it/Castello/assets/" + this.mieidati.URLimg;
+      }
   }
 
   ionViewDidLoad() {

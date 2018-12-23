@@ -24,6 +24,29 @@ import { Api } from '../api/api';
  *
  * If the `status` field is not `success`, then an error is detected and returned.
  */
+ export class DatiUtente {
+   public IDutente: number;
+   public NomePG: string;
+   public CognomePG: string;
+   public IDprofessione: number;
+   public DescProfessione: string;
+   public nomeprofessione: string;  //from LEFT JOIN
+   public Miti: number;
+   public Sanita: number;
+   public URLimg: string;
+   constructor () {
+     this.IDutente = 0;
+     this.NomePG = '' ;
+     this.CognomePG = '';
+     this.IDprofessione = 0;
+     this.DescProfessione =  '';
+     this.miti = 0;
+     this.sanita = 0;
+     this.URLimg = '';
+   }
+ }
+
+
 @Injectable()
 export class User {
   _user: any;
@@ -42,7 +65,7 @@ export class User {
       if (res.status == 'success') {
         this._loggedIn(res);
       } else {
-        console.error('ERROR', err);
+        console.error('ERROR');
       }
     }, err => {
       console.error('ERROR', err);

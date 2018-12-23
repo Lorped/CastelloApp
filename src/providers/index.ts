@@ -1,2 +1,2 @@
 export { Api } from './api/api';
-export { User } from './user/user';
+export { User, DatiItente } from './user/user';
