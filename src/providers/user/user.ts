@@ -40,8 +40,8 @@ import { Api } from '../api/api';
      this.CognomePG = '';
      this.IDprofessione = 0;
      this.DescProfessione =  '';
-     this.miti = 0;
-     this.sanita = 0;
+     this.Miti = 0;
+     this.Sanita = 0;
      this.URLimg = '';
    }
  }

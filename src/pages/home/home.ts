@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { User, DatiUtente } from '../../providers';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 /**
  * Generated class for the HomePage page.
  *
@@ -23,7 +25,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public user: User ) {
+    public user: User,
+    private barcodeScanner: BarcodeScanner ) {
 
       this.mieidati=this.user.getinfo();
       console.log(this.mieidati);
@@ -35,6 +38,21 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+  }
+
+  openbarcode() {
+
+    this.barcodeScanner.scan( {"showTorchButton": true} ).then((barcodeData) => {
+      // Success! Barcode data is here
+      //console.log(barcodeData.text);
+
+      this.oggetto=barcodeData.text;
+      this.navCtrl.push('OggettoPage', { "parentPage": this });
+
+    }, (err) => {
+        // An error occurred
+    });
+
   }
 
 }

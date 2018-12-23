@@ -11,7 +11,7 @@ import { User, Api } from '../providers';
 import { MyApp } from './app.component';
 
 import { Push } from '@ionic-native/push';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 
@@ -35,6 +35,7 @@ import { Push } from '@ionic-native/push';
     StatusBar,
     SplashScreen,
     Push,
+    BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
