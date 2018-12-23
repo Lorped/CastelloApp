@@ -42,6 +42,7 @@ export class User {
       if (res.status == 'success') {
         this._loggedIn(res);
       } else {
+        console.error('ERROR', err);
       }
     }, err => {
       console.error('ERROR', err);
@@ -50,7 +51,9 @@ export class User {
     return seq;
   }
 
-
+  getinfo() {
+    return this._user;
+  }
 
 
   /**
