@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { User, DatiUtente } from '../../providers';
 
@@ -21,15 +21,18 @@ export class HomePage {
 
   mieidati: DatiUtente;
 
-  myimg = 'assets/imgs/nopicture.gif'
+  myimg = 'assets/imgs/nopicture.gif' ;
+
+  oggetto = '';
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    private app: App,
     public user: User,
     private barcodeScanner: BarcodeScanner ) {
 
       this.mieidati=this.user.getinfo();
-      console.log(this.mieidati);
+      //console.log(this.mieidati);
 
       if (this.mieidati.URLimg != "nopicture.gif") {
         this.myimg = "https://www.roma-by-night.it/Castello/assets/" + this.mieidati.URLimg;
@@ -37,7 +40,12 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    //console.log('ionViewDidLoad HomePage');
+  }
+
+  public logoutx() {
+    //this.nav.setRoot('LoginPage');
+    this.app.getRootNav().setRoot('LoginPage');
   }
 
   openbarcode() {

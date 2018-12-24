@@ -6,15 +6,22 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="moredark">
     <ion-title>Castello - Login</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="master" padding>
 
+  <ion-row justify-content-center>
+    <ion-col col-10>
+      <img src="assets/imgs/logo.png"/>
+    </ion-col>
+  </ion-row>
+
+  <div class="login-box">
     <form (submit)="doLogin()" #loginForm="ngForm">
       <ion-list>
 
@@ -32,15 +39,16 @@
         -->
 
         <ion-item>
-          <ion-input type="password" [(ngModel)]="account.password" name="password" placeholder="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="account.password" name="password" placeholder="password" required></ion-input>
         </ion-item>
 
         <div padding>
-          <button ion-button color="primary" block [disabled]="!loginForm.form.valid">Login</button>
+          <button ion-button class="submit-btn" color="mydanger" block [disabled]="!loginForm.form.valid">Login</button>
         </div>
 
       </ion-list>
     </form>
 
+  </div>
 
 </ion-content>
