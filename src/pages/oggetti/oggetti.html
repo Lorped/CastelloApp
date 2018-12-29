@@ -7,12 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>oggetti</ion-title>
+    <ion-title>Oggetti</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+
+
+ <ion-row *ngFor="let item of listscanobj">
+     <ion-col col-12 >{{ item.nome }}</ion-col>
+     <ion-col >{{item.DescEstesa}}</ion-col>
+</ion-row>
+
+<ion-row style="align-items: center;" *ngIf="listscanpair.length>0">
+ <ion-col ><hr/></ion-col>
+ <ion-col col-6 style="color:#FF0000; text-align: center; font-size: 1.1em;">Other</ion-col>
+ <ion-col ><hr/></ion-col>
+</ion-row>
+
+<ion-row *ngFor="let item of listscanpair">
+    <ion-col col-12 >{{ item.nome1 }} + {{item.nome2 }} </ion-col>
+    <ion-col >{{item.PD}}</ion-col>
+</ion-row>
 
 </ion-content>

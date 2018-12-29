@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { User,  ScanObj, ScanPair, ScanList} from '../../providers';
+
 /**
  * Generated class for the OggettiPage page.
  *
@@ -15,7 +17,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OggettiPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  listscanobj: Array<ScanObj> = [];
+  listscanpair: Array<ScanPair> = [];
+
+  lista: ScanList;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private user: User) {
+
+      this.user.getscanlist()
+      .subscribe ((res: Scanlist) => {
+        console.log(res);
+        this.listscanobj=res.scan;
+        this.listscanpair=res.pair;
+      });
+
+
+      //this.listscanobj=this.lista.scan;
+      //this.listscanpair=this.lista.pair;
+
+      //console.log(this.listscanobj);
+      //console.log(this.listscanpair);
   }
 
   ionViewDidLoad() {

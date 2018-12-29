@@ -2,8 +2,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/share';
 
 import { Injectable } from '@angular/core';
-
-import { Api } from '../api/api';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Most apps have the concept of a User. This is a simple provider
@@ -46,19 +45,56 @@ import { Api } from '../api/api';
    }
  }
 
+ export class ScanObj {
+   public IDutente: number;
+   public IDoggetto: number;
+   public data: string;
+   public nome: string;
+   public descrizione: string;
+   public DescEstesa: string;
+
+   constructor () {
+     this.IDutente = 0;
+     this.IDoggetto = 0 ;
+     this.data = '';
+     this.nome = '';
+     this.descrizione =  '';
+     this.DescEstesa = '';
+   }
+ }
+
+ export class ScanPair {
+   public nome1: string;
+   public nome2: string;
+   public data: string;
+   public PD: string;
+
+   constructor () {
+     this.nome1 = '';
+     this.nome1 = '' ;
+     this.data = '';
+     this.PD = '';
+   }
+ }
+
+ export class ScanList  {
+   public scan: Array<ScanList> = [];
+   public pair: Array<ScanPair> = [];
+ }
 
 @Injectable()
 export class User {
   _user: any;
+  url: string = 'https://www.roma-by-night.it/Castello/wsPHPapp/';
 
-  constructor(public api: Api) { }
+  constructor(public http: HttpClient) { }
 
   /**
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login.php', accountInfo).share();
+    let seq = this.http.post( this.url + 'login.php', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
@@ -76,6 +112,11 @@ export class User {
 
   getinfo() {
     return this._user;
+  }
+
+  getscanlist() {
+    return this.http.get(this.url + 'getscanlist.php?id='+this._user.IDutente);
+
   }
 
 

@@ -28,12 +28,13 @@ $IDutente = $request->IDutente;
 $IDprofessione = $request->IDprofessione;
 $scan = $request->scan;
 
-/*****
+/*
 $postdata = '1';
 $IDutente = 1 ;
 $IDprofessione = 1 ;
 $scan = 2147483647 ;
-**********/
+*/
+
 
 //$username = "user";
 //$password = "secret";
@@ -69,8 +70,7 @@ if (isset($postdata) && $IDutente != "" && $scan !="" && $IDprofessione != "" ) 
 
       $firsttime=1;
 
-      $MySql3 = "INSERT INTO logscan (IDoggetto, IDutente) VALUES ($IDoggetto, $IDutente) ";
-      $Result3 = mysql_query($MySql3);
+
 
       $deltasan = $deltasan + $res['basesan'];
       $deltamiti = $deltamiti + $res['basemiti'];
@@ -94,6 +94,12 @@ if (isset($postdata) && $IDutente != "" && $scan !="" && $IDprofessione != "" ) 
 
     }
 
+    if ( $firsttime==1 ) {
+      $DE = mysql_real_escape_string($descrizione);
+      $MySql3 = "INSERT INTO logscan (IDoggetto, IDutente, DescEstesa ) VALUES ($IDoggetto, $IDutente , '$DE') ";
+      $Result3 = mysql_query($MySql3);
+    }
+
     $MySql5 = "SELECT * FROM paired WHERE IDoggetto1 = $IDoggetto OR IDoggetto2 = $IDoggetto ";
     $Result5 = mysql_query($MySql5);
     if ( $res5 = mysql_fetch_array($Result5) ) {
@@ -110,12 +116,30 @@ if (isset($postdata) && $IDutente != "" && $scan !="" && $IDprofessione != "" ) 
       if ( $res6 = mysql_fetch_array($Result6) ) {
         // ok paired
         $descrizione = $descrizione . ' ' . $res5['pdescrizione'];
-        $deltasan = $deltasan + $res5['effettosan'];
-        $deltamiti = $deltamiti + $res5['effettomiti'];
-        $deltapf = $deltapf + $res5['effettopf'];
+
+        $MySql7 = "SELECT * FROM logpaired WHERE IDutente=$IDutente AND
+         ( ( IDoggetto1 = $IDoggetto AND IDoggetto2 = $newoggetto) OR
+           ( IDoggetto2 = $IDoggetto AND IDoggetto1 = $newoggetto) ) ";
+        $Result7 = mysql_query($MySql7);
+        if ( $res7 = mysql_fetch_array($Result7) ) {
+          // ?? faccio qualcosa ?
+        } else {
+          $PD = mysql_real_escape_string ($res5['pdescrizione'] );
+          $MySql8 = "INSERT INTO logpaired ( IDoggetto1, IDoggetto2, IDutente, PD) VALUES
+            ($IDoggetto, $newoggetto, $IDutente, '$PD')";
+          $Result8 = mysql_query($MySql8);
+
+          $deltasan = $deltasan + $res5['effettosan'];
+          $deltamiti = $deltamiti + $res5['effettomiti'];
+          $deltapf = $deltapf + $res5['effettopf'];
+        }
       }
 
     }
+
+
+    $MySql9 = "UPDATE personaggi SET Sanita = Sanita + ($deltasan) , Miti = Miti + ($deltamiti) WHERE IDutente=$IDutente" ;
+    mysql_query($MySql9);
 
     $newout = [
       "nome" => $nome ,

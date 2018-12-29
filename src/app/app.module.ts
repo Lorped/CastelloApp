@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
-import { User, Api } from '../providers';
+import { User } from '../providers';
 import { MyApp } from './app.component';
 
 import { Push } from '@ionic-native/push';
@@ -31,7 +31,6 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   ],
   providers: [
     User,
-    Api,
     StatusBar,
     SplashScreen,
     Push,

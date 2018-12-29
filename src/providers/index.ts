@@ -1,2 +1,2 @@
-export { Api } from './api/api';
-export { User, DatiUtente } from './user/user';
+
+export { User, DatiUtente , ScanObj , ScanPair, ScanList} from './user/user';
