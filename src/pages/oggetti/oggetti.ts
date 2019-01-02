@@ -26,8 +26,8 @@ export class OggettiPage {
     private user: User) {
 
       this.user.getscanlist()
-      .subscribe ((res: Scanlist) => {
-        console.log(res);
+      .subscribe ((res: any) => {
+        //console.log(res);
         this.listscanobj=res.scan;
         this.listscanpair=res.pair;
       });
@@ -41,7 +41,7 @@ export class OggettiPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OggettiPage');
+    //console.log('ionViewDidLoad OggettiPage');
   }
 
 }

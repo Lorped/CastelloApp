@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 import { User } from '../../providers';
 
@@ -26,30 +26,37 @@ export class LoginPage {
     password: ''
   };
 
-  // Our translated text strings
-  private loginErrorString: "Errore di Login";
+  saveme= {
+    checked: false
+  };
 
-  constructor(public navCtrl: NavController,
-    public user: User,
-    public toastCtrl: ToastController,
-    ) {
 
+  constructor(public navCtrl: NavController, public user: User) {
+
+    this.account.email=window.localStorage.getItem( "castellouserid" );
+    this.account.password=window.localStorage.getItem( "castellopassword" );
+    if (this.account.email != '' )  { this.saveme.checked = true; }
 
   }
 
   // Attempt to login in through our User service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
+
+      if ( this.saveme.checked == true ) {
+				window.localStorage.setItem( "castellouserid" , this.account.email );
+				window.localStorage.setItem( "castellopassword" , this.account.password );
+			} else {
+				window.localStorage.removeItem( "castellouserid" );
+				window.localStorage.removeItem( "castellopassword" );
+			}
+
+
+
+
       this.navCtrl.push('TabsPage');
     }, (err) => {
-      //this.navCtrl.push(HomePage);
-      // Unable to log in
-      let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
-        duration: 3000,
-        position: 'top'
-      });
-      toast.present();
+      alert("Non autorizzato");
     });
   }
 

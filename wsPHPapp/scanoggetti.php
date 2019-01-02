@@ -20,13 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 
-
+/*
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 
 $IDutente = $request->IDutente;
 $IDprofessione = $request->IDprofessione;
 $scan = $request->scan;
+*/
+
+$IDutente = $_GET['IDutente'];
+$IDprofessione = $_GET['IDprofessione'];
+$scan = $_GET['scan'];
 
 /*
 $postdata = '1';
@@ -45,7 +50,7 @@ $deltapf=0;
 
 $firsttime=0;
 
-if (isset($postdata) && $IDutente != "" && $scan !="" && $IDprofessione != "" ) {
+if ( $IDutente != "" && $scan !="" && $IDprofessione != "" ) {
 
   include ('../wsPHP/db.inc.php');
 
@@ -111,7 +116,8 @@ if (isset($postdata) && $IDutente != "" && $scan !="" && $IDprofessione != "" ) 
 
       // newoggetto è stato scansionato da poco ?
 
-      $MySql6 = "SELECT * FROM logscan WHERE IDoggetto = $newoggetto AND IDutente = $IDutente AND DATE_ADD(logscan.data, INTERVAL 3 MINUTE) > NOW() ";
+      $MySql6 = "SELECT * FROM logscan WHERE
+        IDoggetto = $newoggetto AND IDutente = $IDutente AND DATE_ADD(logscan.data, INTERVAL 3 MINUTE) > NOW() ";
       $Result6 = mysql_query($MySql6);
       if ( $res6 = mysql_fetch_array($Result6) ) {
         // ok paired
@@ -158,5 +164,15 @@ if (isset($postdata) && $IDutente != "" && $scan !="" && $IDprofessione != "" ) 
   }
 } else {
     header("HTTP/1.1 401 Unauthorized");
+
+    /*
+    $sent= [
+      'IDutente' => $_GET['IDutente'],
+      'IDprofessione' => $_GET['IDprofessione'],
+      'scan' => $_GET['scan']
+    ];
+    $output = json_encode($sent);
+    echo $output;
+    */
 }
 ?>
