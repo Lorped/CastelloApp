@@ -143,8 +143,21 @@ if ( $IDutente != "" && $scan !="" && $IDprofessione != "" ) {
 
     }
 
+    $MySql9 = "SELECT * FROM personaggi  WHERE IDutente=$IDutente" ;
+    $Result9=mysql_query($MySql9);
+    $res9=mysql_fetch_array($Result9);
+    $oldsan=$res9['Sanita'];
+    $oldmiti=$res9['Miti'];
 
-    $MySql9 = "UPDATE personaggi SET Sanita = Sanita + ($deltasan) , Miti = Miti + ($deltamiti) WHERE IDutente=$IDutente" ;
+    $newsan=$oldsan+$deltasan;
+    if ($newsan > 10) {$newsan=10; }
+    if ($newsan < 0) {$newsan=0; }
+    $newmiti=$oldmiti+$deltamiti;
+    if ($newmiti > 10) {$newmiti=10; }
+    if ($newmiti < 0) {$newmiti=0; }
+    if ($newsan> 10-$newmiti) { $newsan=10-$newmiti ;}
+
+    $MySql9 = "UPDATE personaggi SET Sanita = $newsan  , Miti = $newmiti WHERE IDutente=$IDutente" ;
     mysql_query($MySql9);
 
     $newout = [

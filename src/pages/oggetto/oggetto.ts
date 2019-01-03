@@ -44,14 +44,14 @@ export class OggettoPage {
       this.deltasan=data.deltasan;
       this.deltamiti=data.deltamiti;
       this.deltapf=data.deltapf;
-      console.log(data);
+      //console.log(data);
     });
 
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OggettoPage');
+    //console.log('ionViewDidLoad OggettoPage');
   }
 
 }

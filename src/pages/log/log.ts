@@ -19,7 +19,7 @@ export class LogPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LogPage');
+    //console.log('ionViewDidLoad LogPage');
   }
 
 }
