@@ -43,7 +43,7 @@ export class HomePage {
 
       this.events.subscribe('obj:scanned', (user) => {
         this.user.getusr()
-        .subscribe( (res) => {
+        .subscribe( (res: any) => {
           //console.log(res);
           this.mieidati.Sanita=res.Sanita;
           this.mieidati.Miti=res.Miti;
