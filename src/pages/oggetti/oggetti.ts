@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { User,  ScanObj, ScanPair, ScanList} from '../../providers';
 
+import { Events } from 'ionic-angular';
+
 /**
  * Generated class for the OggettiPage page.
  *
@@ -23,14 +25,23 @@ export class OggettiPage {
   lista: ScanList;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private user: User) {
+    private user: User, private events: Events) {
 
+      this.refreshscanlist();
+
+      this.events.subscribe('obj:scanned', (user) => {
+        this.refreshscanlist();
+        //console.log('Scanned by ', user);
+      });
+
+      /*
       this.user.getscanlist()
       .subscribe ((res: any) => {
         //console.log(res);
         this.listscanobj=res.scan;
         this.listscanpair=res.pair;
       });
+      */
 
 
       //this.listscanobj=this.lista.scan;
@@ -42,6 +53,15 @@ export class OggettiPage {
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad OggettiPage');
+  }
+
+  refreshscanlist() {
+    this.user.getscanlist()
+    .subscribe ((res: any) => {
+      //console.log(res);
+      this.listscanobj=res.scan;
+      this.listscanpair=res.pair;
+    });
   }
 
 }

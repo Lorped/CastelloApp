@@ -119,6 +119,11 @@ export class User {
 
   }
 
+  getusr() {
+    return this.http.get(this.url + 'getusr.php?id='+this._user.IDutente);
+
+  }
+
 
   /**
    * Log the user out, which forgets the session

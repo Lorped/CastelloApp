@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 
+import { Events } from 'ionic-angular';
+
 
 /**
  * Generated class for the OggettoPage page.
@@ -28,7 +30,8 @@ export class OggettoPage {
   deltamiti = 0 ;
   deltapf = 0 ;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private http: HttpClient, public events: Events ) {
 
     this.barcode = this.navParams.get("parentPage").oggetto;
 		this.IDutente = this.navParams.get("parentPage").mieidati['IDutente'];
@@ -45,6 +48,8 @@ export class OggettoPage {
       this.deltamiti=data.deltamiti;
       this.deltapf=data.deltapf;
       //console.log(data);
+
+      this.events.publish('obj:scanned', this.IDutente);
     });
 
 
