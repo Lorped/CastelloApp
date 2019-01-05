@@ -5,6 +5,7 @@ import { User } from '../../providers';
 
 import { HttpClient } from '@angular/common/http';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -35,7 +36,7 @@ export class LoginPage {
   userid = 0;
 
   constructor(public navCtrl: NavController,
-    public user: User, public push: Push, private http: HttpClient) {
+    public user: User, public push: Push, private http: HttpClient, public events: Events) {
 
     this.account.email=window.localStorage.getItem( "castellouserid" );
     this.account.password=window.localStorage.getItem( "castellopassword" );
@@ -99,6 +100,8 @@ export class LoginPage {
 			//		youralert.present();
 			//	}
 			//	console.log('Received a notification', notification);
+
+      this.events.publish('obj:scanned', userid);
 		});
 
 		pushObject.on('registration').subscribe((registration: any) => {
