@@ -69,12 +69,12 @@ export class LoginPage {
     //console.log('ionViewDidLoad LoginPage');
   }
 
-  pushsetup( userid: number ) {
+  pushsetup( user: number ) {
 
 		const options: PushOptions = {
 			android: {
 				senderID: '639056394320',
-				sound: true,
+				//sound: true,
 				forceShow: true,
 				icon: 'notification',
         iconColor: '#ff0000'
@@ -91,24 +91,13 @@ export class LoginPage {
 
 		const pushObject: PushObject = this.push.init(options);
 
-		pushObject.on('notification').subscribe((notification: any) => {
-			//	if (notification.additionalData.foreground) {
-			//		let youralert = this.alertCtrl.create({
-			//			title: 'New Push notification',
-			//			message: notification.message
-			//		});
-			//		youralert.present();
-			//	}
-			//	console.log('Received a notification', notification);
 
-      this.events.publish('obj:scanned', userid);
-		});
 
 		pushObject.on('registration').subscribe((registration: any) => {
 			//console.log('Device registered ', registration.registrationId);
 			//alert('Device registered '+registration.registrationId);
 
-			let updateurl = 'https://www.roma-by-night.it/Castello/wsPHPapp/updateid.php?userid=' + userid +'&id='+registration.registrationId;
+			let updateurl = 'https://www.roma-by-night.it/Castello/wsPHPapp/updateid.php?userid=' + user +'&id='+registration.registrationId;
 			this.http.get(updateurl)
 			.subscribe(res =>  {
 					// updated
@@ -122,6 +111,30 @@ export class LoginPage {
 				//alert("subscribed to topic: " + res);
 			});
       */
+
+		});
+
+    pushObject.on('notification').subscribe((notification: any) => {
+
+      //console.log("any notification");
+      this.events.publish('obj:scanned', user);
+      //console.log(notification.additionalData.foreground);
+      //console.log(notification.additionalData);
+      /*
+      if (notification.additionalData.foreground) {
+        alert('Received a notification ' + notification);
+        this.events.publish('obj:scanned', user);
+      } else {
+        //if user NOT using app and push notification comes
+        //TODO: Your logic on click of push notification directly
+
+        console.log("Push notification clicked");
+        this.events.publish('obj:scanned', user);
+      }
+      */
+
+
+
 
 		});
 
