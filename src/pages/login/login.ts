@@ -73,14 +73,15 @@ export class LoginPage {
 		const options: PushOptions = {
 			android: {
 				senderID: '639056394320',
-				sound: 'true',
+				sound: true,
 				forceShow: true,
-				icon: 'notification'
+				icon: 'notification',
+        iconColor: '#ff0000'
 			},
 			ios: {
-				alert: 'true',
+				alert: true,
 				badge: true,
-				sound: 'true'
+				sound: true
 			},
 			windows: {}
 		};
