@@ -3,6 +3,8 @@ import { IonicPage, NavController } from 'ionic-angular';
 
 import { User } from '../../providers';
 
+import { HttpClient } from '@angular/common/http';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 /**
  * Generated class for the LoginPage page.
@@ -30,8 +32,10 @@ export class LoginPage {
     checked: false
   };
 
+  userid = 0;
 
-  constructor(public navCtrl: NavController, public user: User) {
+  constructor(public navCtrl: NavController,
+    public user: User, public push: Push, private http: HttpClient) {
 
     this.account.email=window.localStorage.getItem( "castellouserid" );
     this.account.password=window.localStorage.getItem( "castellopassword" );
@@ -51,8 +55,8 @@ export class LoginPage {
 				window.localStorage.removeItem( "castellopassword" );
 			}
 
-
-
+      this.userid=this.user.getinfo().IDutente;
+      this.pushsetup( this.userid );
 
       this.navCtrl.push('TabsPage');
     }, (err) => {
@@ -63,5 +67,62 @@ export class LoginPage {
   ionViewDidLoad() {
     //console.log('ionViewDidLoad LoginPage');
   }
+
+  pushsetup( userid: number ) {
+
+		const options: PushOptions = {
+			android: {
+				senderID: '639056394320',
+				sound: 'true',
+				forceShow: true,
+				icon: 'notification'
+			},
+			ios: {
+				alert: 'true',
+				badge: true,
+				sound: 'true'
+			},
+			windows: {}
+		};
+
+    //console.log(userid);
+
+		const pushObject: PushObject = this.push.init(options);
+
+		pushObject.on('notification').subscribe((notification: any) => {
+			//	if (notification.additionalData.foreground) {
+			//		let youralert = this.alertCtrl.create({
+			//			title: 'New Push notification',
+			//			message: notification.message
+			//		});
+			//		youralert.present();
+			//	}
+			//	console.log('Received a notification', notification);
+		});
+
+		pushObject.on('registration').subscribe((registration: any) => {
+			//console.log('Device registered ', registration.registrationId);
+			//alert('Device registered '+registration.registrationId);
+
+			let updateurl = 'https://www.roma-by-night.it/Castello/wsPHPapp/updateid.php?userid=' + userid +'&id='+registration.registrationId;
+			this.http.get(updateurl)
+			.subscribe(res =>  {
+					// updated
+					//alert('Device registered '+registration.registrationId);
+			});
+
+			/*
+      let topic = "userid" + this.currentUser['userid'];
+			pushObject.subscribe(topic).then((res:any) => {
+				//console.log("subscribed to topic: ", res);
+				//alert("subscribed to topic: " + res);
+			});
+      */
+
+		});
+
+		pushObject.on('error').subscribe(error => alert('Error with Push plugin ' + error));
+	}
+
 
 }
