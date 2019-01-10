@@ -32,6 +32,7 @@ import { HttpClient } from '@angular/common/http';
    public nomeprofessione: string;  //from LEFT JOIN
    public Miti: number;
    public Sanita: number;
+   public PF: number;
    public URLimg: string;
    constructor () {
      this.IDutente = 0;
@@ -41,6 +42,7 @@ import { HttpClient } from '@angular/common/http';
      this.DescProfessione =  '';
      this.Miti = 0;
      this.Sanita = 0;
+     this.PF = 0;
      this.URLimg = '';
    }
  }

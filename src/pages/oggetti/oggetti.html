@@ -13,17 +13,17 @@
 </ion-header>
 
 
-<ion-content padding class="master">
+<ion-content padding class="home-background">
 
-  <ion-list class="master" >
-   <ion-row class="master"  *ngFor="let item of listscanobj">
+  <ion-list class="master2" >
+   <ion-row   *ngFor="let item of listscanobj">
      <ion-col>
      <span style="color:#ff0000;">{{item.nome}}</span>
      <br><span style="font-size:0.9em;">{{item.DescEstesa}}</span>
      </ion-col>
    </ion-row>
 
-  </ion-list>
+
 
 
 
@@ -39,5 +39,7 @@
   <br><span style="font-size:0.9em;">{{item.PD}}</span>
   </ion-col>
 </ion-row>
+
+  </ion-list>
 
 </ion-content>

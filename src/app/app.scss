@@ -20,10 +20,22 @@
     color: #FFFFFF;
 }
 
+.master2 {
+    background-color: #000000;
+    background:rgba(0,0,0,0.5); 
+    color: #FFFFFF;
+}
 
 .selectable {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
+}
+
+.home-background {
+  background: url(/assets/imgs/back.png) no-repeat center center fixed;
+  background-size: cover;
+  background-color: transparent;
+  color: #FFFFFF;
 }
