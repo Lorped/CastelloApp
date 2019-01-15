@@ -69,12 +69,12 @@ export class HomePage {
       // Success! Barcode data is here
       //console.log(barcodeData.text);
 
-      if (barcodeData.text != ""){
+      if ( ! barcodeData.cancelled ) {
         this.oggetto=barcodeData.text;
         this.navCtrl.push('OggettoPage', { "parentPage": this });
       }
 
-    }, (err) => {
+    }).catch (err => {
         // An error occurred
     });
 
