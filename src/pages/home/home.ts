@@ -69,8 +69,10 @@ export class HomePage {
       // Success! Barcode data is here
       //console.log(barcodeData.text);
 
-      this.oggetto=barcodeData.text;
-      this.navCtrl.push('OggettoPage', { "parentPage": this });
+      if (barcodeData.text != ""){
+        this.oggetto=barcodeData.text;
+        this.navCtrl.push('OggettoPage', { "parentPage": this });
+      }
 
     }, (err) => {
         // An error occurred
