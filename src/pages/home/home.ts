@@ -72,6 +72,8 @@ export class HomePage {
       if ( ! barcodeData.cancelled ) {
         this.oggetto=barcodeData.text;
         this.navCtrl.push('OggettoPage', { "parentPage": this });
+      } else {
+        // do nothing
       }
 
     }).catch (err => {
