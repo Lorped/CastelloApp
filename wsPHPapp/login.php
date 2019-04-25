@@ -44,6 +44,9 @@ if (isset($postdata) && $email != "" && $password !="" ) {
 
     $MySql = "SELECT *  FROM personaggi
           LEFT JOIN professioni ON personaggi.IDprofessione=professioni.IDprofessione
+          LEFT JOIN specializzazione ON personaggi.IDspecial=specializzazione.IDspecial
+          LEFT JOIN bonusprof ON personaggi.IDbp=bonusprof.IDbp
+
           WHERE IDutente = '$IDutente' ";
 
     $Result = mysql_query($MySql);
@@ -51,7 +54,7 @@ if (isset($postdata) && $email != "" && $password !="" ) {
 
       $newout = [
         "status" => 'success' ,
-        "user" => $res 
+        "user" => $res
       ];
 
       $output = json_encode($newout);

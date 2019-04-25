@@ -5,7 +5,6 @@ import { User, DatiUtente } from '../../providers';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
-import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the HomePage page.
@@ -31,8 +30,8 @@ export class HomePage {
     public navParams: NavParams,
     private app: App,
     public user: User,
-    private barcodeScanner: BarcodeScanner,
-    public events: Events ) {
+    private barcodeScanner: BarcodeScanner
+     ) {
 
       this.mieidati=this.user.getinfo();
       //console.log(this.mieidati);
@@ -41,17 +40,7 @@ export class HomePage {
         this.myimg = "https://www.roma-by-night.it/Castello/assets/" + this.mieidati.URLimg;
       }
 
-      this.events.subscribe('obj:scanned', (user) => {
-        this.user.getusr()
-        .subscribe( (res: any) => {
-          //console.log(res);
-          this.mieidati.Sanita=res.Sanita;
-          this.mieidati.Miti=res.Miti;
-          //console.log('After Scanned by ', user);
-          //console.log(this.mieidati);
-        });
 
-      });
   }
 
   ionViewDidLoad() {
