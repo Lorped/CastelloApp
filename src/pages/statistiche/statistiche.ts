@@ -34,7 +34,7 @@ export class StatistichePage {
         //console.log(res);
         this.mieidati.Sanita=res.Sanita;
         this.mieidati.Miti=res.Miti;
-        //console.log('After Scanned by ', user);
+        console.log('After Scanned by ', user);
         //console.log(this.mieidati);
       });
 

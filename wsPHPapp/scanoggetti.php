@@ -31,6 +31,8 @@ $scan = $request->scan;
 
 $IDutente = $_GET['IDutente'];
 $IDprofessione = $_GET['IDprofessione'];
+$IDspecial = $_GET['IDspecial'];
+$IDbp = $_GET['IDbp'];
 $scan = $_GET['scan'];
 
 /*
@@ -50,7 +52,7 @@ $deltapf=0;
 
 $firsttime=0;
 
-if ( $IDutente != "" && $scan !="" && $IDprofessione != "" ) {
+if ( $IDutente != "" && $scan !="" && $IDprofessione != ""  && $IDspecial != ""  && $IDbp != "" ) {
 
   include ('../wsPHP/db.inc.php');
 
@@ -98,6 +100,40 @@ if ( $IDutente != "" && $scan !="" && $IDprofessione != "" ) {
       }
 
     }
+    //cerco descrizione estesa basata su IDspecial
+
+    $MySql4 = "SELECT *  FROM effetti WHERE IDoggetto = $IDoggetto AND IDspecial = $IDspecial ";
+    $Result4 = mysql_query($MySql4);
+
+    if ( $res4 = mysql_fetch_array($Result4) ) {
+
+      $descrizione = $descrizione . ' ' . $res4['descrizione'];
+
+      if ($firsttime==1) {
+        $deltasan = $deltasan + $res4['effettosan'];
+        $deltamiti = $deltamiti + $res4['effettomiti'];
+        $deltapf = $deltapf + $res4['effettopf'];
+      }
+
+    }
+    //cerco descrizione estesa basata su IDbp
+
+    $MySql4 = "SELECT *  FROM effetti WHERE IDoggetto = $IDoggetto AND IDbp = $IDbp ";
+    $Result4 = mysql_query($MySql4);
+
+    if ( $res4 = mysql_fetch_array($Result4) ) {
+
+      $descrizione = $descrizione . ' ' . $res4['descrizione'];
+
+      if ($firsttime==1) {
+        $deltasan = $deltasan + $res4['effettosan'];
+        $deltamiti = $deltamiti + $res4['effettomiti'];
+        $deltapf = $deltapf + $res4['effettopf'];
+      }
+
+    }
+
+
 
     if ( $firsttime==1 ) {
       $DE = mysql_real_escape_string($descrizione);

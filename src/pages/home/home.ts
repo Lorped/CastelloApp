@@ -58,21 +58,28 @@ export class HomePage {
       // Success! Barcode data is here
       //console.log(barcodeData.text);
 
-      if ( ! barcodeData.cancelled ) {
-        this.oggetto=barcodeData.text;
-        this.navCtrl.push('OggettoPage', { "parentPage": this });
+      this.oggetto=barcodeData.text;
+
+      if (this.oggetto.substr(0,1) == 'M') {
+        this.navCtrl.push('MagiaPage', { "parentPage": this });
       } else {
-        // do nothing
+        this.navCtrl.push('OggettoPage', { "parentPage": this });
       }
 
-    }).catch (err => {
+
+    }, (err) => {
         // An error occurred
     });
 
-    /*  TEST
-    this.oggetto='936382937264';
-    this.navCtrl.push('OggettoPage', { "parentPage": this });
-    */
+    /*  TEST */
+    this.oggetto='M529417215427';
+    this.oggetto='224489899678';
+    if (this.oggetto.substr(0,1) == 'M') {
+      this.navCtrl.push('MagiaPage', { "parentPage": this });
+    } else {
+      this.navCtrl.push('OggettoPage', { "parentPage": this });
+    }
+
   }
 
 }

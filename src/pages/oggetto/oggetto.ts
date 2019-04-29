@@ -36,11 +36,13 @@ export class OggettoPage {
     this.barcode = this.navParams.get("parentPage").oggetto;
 		this.IDutente = this.navParams.get("parentPage").mieidati['IDutente'];
     this.IDprofessione = this.navParams.get("parentPage").mieidati['IDprofessione'];
+    this.IDspecial = this.navParams.get("parentPage").mieidati['IDspecial'];
+    this.IDbp = this.navParams.get("parentPage").mieidati['IDbp'];
 
     var url = 'https://www.roma-by-night.it/Castello/wsPHPapp/scanoggetti.php';
 
 
-    this.http.get(url+ '?IDutente=' + this.IDutente + '&IDprofessione=' + this.IDprofessione + '&scan=' + this.barcode)
+    this.http.get(url+ '?IDutente=' + this.IDutente + '&IDprofessione=' + this.IDprofessione + '&IDspecial=' + this.IDspecial + '&IDbp=' + this.IDbp + '&scan=' + this.barcode)
     .subscribe( (data: any) => {
       this.nome=data.nome;
       this.descrizione=data.descrizione;
