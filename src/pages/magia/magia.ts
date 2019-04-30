@@ -18,8 +18,45 @@ import { Events } from 'ionic-angular';
 })
 export class MagiaPage {
 
+  barcode: '';
+  IDutente: 0;
+
+	nome = '';
+	descrizione = '';
+  deltasan = 0 ;
+  deltamiti = 0 ;
+  deltapf = 0 ;
+  minmiti = 0 ;
+  mitiPG = 0 ;
+
+  outputnome = '?????';
+  outputdescrizione = '?????';
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: HttpClient, public events: Events ) {
+
+    this.barcode = this.navParams.get("parentPage").oggetto;
+		this.IDutente = this.navParams.get("parentPage").mieidati['IDutente'];
+
+
+    var url = 'https://www.roma-by-night.it/Castello/wsPHPapp/scanmagia.php';
+
+
+    this.http.get(url+ '?IDutente=' + this.IDutente +  '&scan=' + this.barcode)
+    .subscribe( (data: any) => {
+      this.nome=data.nome;
+      this.descrizione=data.descrizione;
+      this.deltasan=data.deltasan;
+      this.deltamiti=data.deltamiti;
+      this.deltapf=data.deltapf;
+      this.minmiti=data.minmiti;
+      this.mitiPG=data.mitiPG;
+      console.log(data);
+
+
+      //this.events.publish('obj:scanned', this.IDutente);
+    });
+
   }
 
   ionViewDidLoad() {

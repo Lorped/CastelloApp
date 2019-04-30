@@ -23,6 +23,8 @@ export class OggettoPage {
   IDutente: 0;
   IDprofessione: 0;
 
+  IDspecial : 0 ;
+  IDbp : 0 ;
 
 	nome = '';
 	descrizione = '';

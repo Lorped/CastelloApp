@@ -72,12 +72,17 @@ export class HomePage {
     });
 
     /*  TEST */
+    //this.oggetto='936382937264';
     this.oggetto='M529417215427';
-    this.oggetto='224489899678';
+
     if (this.oggetto.substr(0,1) == 'M') {
-      this.navCtrl.push('MagiaPage', { "parentPage": this });
+      let nav = this.app.getRootNav();
+      nav.push('MagiaPage', { "parentPage": this });
+      //this.navCtrl.push('MagiaPage', { "parentPage": this });
     } else {
-      this.navCtrl.push('OggettoPage', { "parentPage": this });
+      let nav = this.app.getRootNav();
+      nav.push('OggettoPage', { "parentPage": this });
+      //this.navCtrl.push('OggettoPage', { "parentPage": this });
     }
 
   }
