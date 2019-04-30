@@ -73,7 +73,7 @@ export class HomePage {
 
     /*  TEST */
     //this.oggetto='936382937264';
-    this.oggetto='M529417215427';
+    this.oggetto='M467000272497';
 
     if (this.oggetto.substr(0,1) == 'M') {
       let nav = this.app.getRootNav();
