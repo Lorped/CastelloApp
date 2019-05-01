@@ -3,7 +3,7 @@ import { App, IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { User, DatiUtente } from '../../providers';
 
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 
 
 /**
@@ -29,8 +29,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private app: App,
-    public user: User,
-    private barcodeScanner: BarcodeScanner
+    public user: User
      ) {
 
       this.mieidati=this.user.getinfo();
@@ -52,39 +51,5 @@ export class HomePage {
     this.app.getRootNav().setRoot('LoginPage');
   }
 
-  openbarcode() {
-
-    this.barcodeScanner.scan( {"showTorchButton": true} ).then((barcodeData) => {
-      // Success! Barcode data is here
-      //console.log(barcodeData.text);
-
-      this.oggetto=barcodeData.text;
-
-      if (this.oggetto.substr(0,1) == 'M') {
-        this.navCtrl.push('MagiaPage', { "parentPage": this });
-      } else {
-        this.navCtrl.push('OggettoPage', { "parentPage": this });
-      }
-
-
-    }, (err) => {
-        // An error occurred
-    });
-
-    /*  TEST */
-    //this.oggetto='936382937264';
-    this.oggetto='M467000272497';
-
-    if (this.oggetto.substr(0,1) == 'M') {
-      let nav = this.app.getRootNav();
-      nav.push('MagiaPage', { "parentPage": this });
-      //this.navCtrl.push('MagiaPage', { "parentPage": this });
-    } else {
-      let nav = this.app.getRootNav();
-      nav.push('OggettoPage', { "parentPage": this });
-      //this.navCtrl.push('OggettoPage', { "parentPage": this });
-    }
-
-  }
 
 }

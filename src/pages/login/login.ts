@@ -3,7 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 
 import { User } from '../../providers';
 
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { Events } from 'ionic-angular';
 
@@ -36,7 +36,7 @@ export class LoginPage {
   userid = 0;
 
   constructor(public navCtrl: NavController,
-    public user: User, public push: Push, private http: HttpClient, public events: Events) {
+    public user: User, public push: Push, private http: Http, public events: Events) {
 
     this.account.email=window.localStorage.getItem( "castellouserid" );
     this.account.password=window.localStorage.getItem( "castellopassword" );

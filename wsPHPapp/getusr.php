@@ -27,7 +27,7 @@ $IDutente=$_GET['id'];
 
 
 
-$MySql="SELECT Sanita, Miti FROM personaggi
+$MySql="SELECT Sanita, Miti, PF FROM personaggi
 	WHERE IDutente='$IDutente' ";
 $Result=mysql_query($MySql);
 $res=mysql_fetch_array($Result,MYSQL_ASSOC);

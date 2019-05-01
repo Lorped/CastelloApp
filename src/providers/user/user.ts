@@ -133,6 +133,7 @@ export class User {
   }
 
   getusr() {
+    console.log("inside getuser");
     return this.http.get(this.url + 'getusr.php?id='+this._user.IDutente);
 
   }

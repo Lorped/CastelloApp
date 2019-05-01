@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 
 import { Events } from 'ionic-angular';
 
@@ -33,7 +33,7 @@ export class OggettoPage {
   deltapf = 0 ;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private http: HttpClient, public events: Events ) {
+    private http: Http, public events: Events ) {
 
     this.barcode = this.navParams.get("parentPage").oggetto;
 		this.IDutente = this.navParams.get("parentPage").mieidati['IDutente'];

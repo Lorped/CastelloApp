@@ -28,5 +28,29 @@
     <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" class="selectable">{{outputdescrizione}}</ion-col>
   </ion-row>
 
+  <ion-row *ngIf="xlancia==true">
+    <ion-col style="text-align: center;"><button ion-button color="#FFFFFF;" round outline (click)="goback()">Indietro</button></ion-col>
+    <ion-col style="text-align: center;"><button ion-button color=danger round outline (click)="lancia()">Lancia</button></ion-col>
+  </ion-row>
+
+  <ion-row style="align-items: center;" *ngIf="xlancia==false">
+   <ion-col ><hr/></ion-col>
+   <ion-col col-4 style="color:#FFFFFF; text-align: center; font-size: 1.1em;">Esito</ion-col>
+   <ion-col ><hr/></ion-col>
+ </ion-row>
+
+
+  <ion-row *ngIf="deltasan < 0 && xlancia==false">
+    <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" >Hai <span style="color:#ff0000;">perso</span> {{-deltasan}} punto/i di Sanità mentale</ion-col>
+  </ion-row>
+  <ion-row *ngIf="deltasan > 0 && xlancia==false">
+    <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" >Hai <span style="color:#00ff00;">guadagnato</span> {{deltasan}} punto/i di Sanità mentale</ion-col>
+  </ion-row>
+  <ion-row *ngIf="deltapf < 0 && xlancia==false">
+    <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" >Hai <span style="color:#ff0000;">perso</span> {{-deltapf}} punto/i Vita</ion-col>
+  </ion-row>
+  <ion-row *ngIf="deltapf > 0 && xlancia==false">
+    <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" >Hai <span style="color:#00ff00;">guadagnato</span> {{deltapf}} punto/i Vita</ion-col>
+  </ion-row>
 
 </ion-content>

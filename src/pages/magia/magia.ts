@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 import { Events } from 'ionic-angular';
 
@@ -32,8 +33,10 @@ export class MagiaPage {
   outputnome = '?????';
   outputdescrizione = '?????';
 
+  xlancia = true;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private http: HttpClient, public events: Events ) {
+    private http: Http, public events: Events ) {
 
     this.barcode = this.navParams.get("parentPage").oggetto;
 		this.IDutente = this.navParams.get("parentPage").mieidati['IDutente'];
@@ -43,6 +46,7 @@ export class MagiaPage {
 
 
     this.http.get(url+ '?IDutente=' + this.IDutente +  '&scan=' + this.barcode)
+    .map(res => res.json())
     .subscribe( (data: any) => {
       this.nome=data.nome;
       this.descrizione=data.descrizione;
@@ -53,6 +57,11 @@ export class MagiaPage {
       this.mitiPG=data.mitiPG;
       console.log(data);
 
+console.log (this.minmiti + " vs." + this.mitiPG);
+      if (this.minmiti <= this.mitiPG) {
+        this.outputnome = this.nome;
+        this.outputdescrizione = this.descrizione;
+      }
 
       //this.events.publish('obj:scanned', this.IDutente);
     });
@@ -63,4 +72,22 @@ export class MagiaPage {
     console.log('ionViewDidLoad MagiaPage');
   }
 
+  goback() {
+    this.navCtrl.pop();
+  }
+
+  lancia() {
+
+    this.outputnome = this.nome;
+    this.outputdescrizione = this.descrizione;
+
+    var url = 'https://www.roma-by-night.it/Castello/wsPHPapp/usamagia.php';
+    this.http.get(url+ '?IDutente=' + this.IDutente +  '&scan=' + this.barcode)
+    .map(res => res.json())
+    .subscribe( (data: any) => {
+      this.xlancia = false ;
+      this.events.publish('obj:scanned', this.IDutente);
+    });
+
+  }
 }

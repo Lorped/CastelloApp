@@ -6,6 +6,7 @@
 -->
 <ion-header>
 
+
   <ion-navbar color="moredark">
     <ion-title>Il Castello della Follia</ion-title>
 
@@ -17,31 +18,45 @@
 
   </ion-navbar>
 
+
 </ion-header>
 
 
-<ion-content no-padding class="home-background">
+<ion-content no-padding class="home2-background">
   <ion-grid>
     <ion-row>
-      <ion-col col-8><img [src]="myimg" style="vertical-align: middle;"></ion-col>
-      <ion-col col-4>&nbsp;</ion-col>
+      <ion-col col-1>&nbsp;</ion-col>
+      <ion-col col-6 class="alc"><img  class="myimg" [src]="myimg" style="vertical-align: middle;"></ion-col>
+      <ion-col col-5>&nbsp;</ion-col>
     </ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
     <ion-row>
-      <ion-col col-4>Nome</ion-col>
-      <ion-col class="bigger">{{mieidati.NomePG}} {{mieidati.CognomePG}}</ion-col>
+      <ion-col class="bigger alc">{{mieidati.NomePG}} {{mieidati.CognomePG}}</ion-col>
     </ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
     <ion-row>
-      <ion-col col-4>Professione</ion-col>
-      <ion-col class="bigger">{{mieidati.nomeprofessione}}</ion-col>
+      <ion-col class="bigger alc">{{mieidati.gg}}/{{mieidati.mm}}/{{mieidati.aaaa}}</ion-col>
     </ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
+    <ion-row>&nbsp;</ion-row>
+
+    <!--
     <ion-row>
-      <ion-col col-4>Specializ.</ion-col>
-      <ion-col class="bigger">{{mieidati.nomespecial}}</ion-col>
+    <ion-col class="bigger">{{mieidati.nomeprofessione}}</ion-col>
     </ion-row>
+    -->
     <ion-row>
-      <ion-col col-4>Attività</ion-col>
-      <ion-col class="bigger">{{mieidati.DescProfessione}}</ion-col>
+      <ion-col class="bigger alc">{{mieidati.nomespecial}}</ion-col>
     </ion-row>
+
 
 <!----
     <ion-row>
@@ -65,9 +80,6 @@
   </ion-grid>
 
 
-  <ion-row >
-    <ion-col style="text-align: center;"><button ion-button color="#FFFFFF;" round outline (click)="openbarcode()">Scan</button></ion-col>
-  </ion-row>
 
 </ion-content>
 
