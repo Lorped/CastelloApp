@@ -128,7 +128,7 @@ export class LoginPage {
         //if user NOT using app and push notification comes
         //TODO: Your logic on click of push notification directly
 
-        console.log("Push notification clicked");
+        //console.log("Push notification clicked");
         this.events.publish('obj:scanned', user);
       }
       */

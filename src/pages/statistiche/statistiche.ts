@@ -39,7 +39,7 @@ export class StatistichePage {
     });
 
     this.mieidati=this.user.getinfo();
-    console.log(this.mieidati);
+    //console.log(this.mieidati);
 
     this.events.subscribe('obj:scanned', (user) => {
       this.user.getusr()
@@ -48,7 +48,7 @@ export class StatistichePage {
         this.mieidati.Sanita=res.Sanita;
         this.mieidati.Miti=res.Miti;
         this.mieidati.PF=res.PF;
-        console.log('After Scanned by ', user);
+        //console.log('After Scanned by ', user);
         //console.log(this.mieidati);
       });
 
@@ -83,9 +83,9 @@ export class StatistichePage {
         // An error occurred
     });
 
-    /*  TEST */
-    //this.oggetto='936382937264';
-    this.oggetto='M467000272497';
+    /*  TEST
+    this.oggetto='936382937264';
+    //this.oggetto='M467000272497';
 
     if (this.oggetto.substr(0,1) == 'M') {
       let nav = this.app.getRootNav();
@@ -96,7 +96,7 @@ export class StatistichePage {
       nav.push('OggettoPage', { "parentPage": this });
       //this.navCtrl.push('OggettoPage', { "parentPage": this });
     }
-
+    */
   }
 
 }

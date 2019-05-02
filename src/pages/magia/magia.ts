@@ -55,9 +55,9 @@ export class MagiaPage {
       this.deltapf=data.deltapf;
       this.minmiti=data.minmiti;
       this.mitiPG=data.mitiPG;
-      console.log(data);
+      //console.log(data);
 
-console.log (this.minmiti + " vs." + this.mitiPG);
+//console.log (this.minmiti + " vs." + this.mitiPG);
       if (this.minmiti <= this.mitiPG) {
         this.outputnome = this.nome;
         this.outputdescrizione = this.descrizione;
@@ -69,7 +69,7 @@ console.log (this.minmiti + " vs." + this.mitiPG);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MagiaPage');
+    //console.log('ionViewDidLoad MagiaPage');
   }
 
   goback() {

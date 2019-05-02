@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
-
+import 'rxjs/add/operator/map';
 import { Events } from 'ionic-angular';
 
 
@@ -45,6 +45,7 @@ export class OggettoPage {
 
 
     this.http.get(url+ '?IDutente=' + this.IDutente + '&IDprofessione=' + this.IDprofessione + '&IDspecial=' + this.IDspecial + '&IDbp=' + this.IDbp + '&scan=' + this.barcode)
+    .map(res => res.json())
     .subscribe( (data: any) => {
       this.nome=data.nome;
       this.descrizione=data.descrizione;
