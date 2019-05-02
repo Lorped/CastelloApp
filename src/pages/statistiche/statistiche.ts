@@ -21,6 +21,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 export class StatistichePage {
 
   mieidati: DatiUtente;
+  oggetto = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public user: User,

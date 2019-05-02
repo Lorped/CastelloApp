@@ -23,10 +23,25 @@
 
 
 <ion-content no-padding class="home2-background">
+  <ion-list >
+    <ion-item class="list1">
+      <img  class="myimg" [src]="myimg" style="vertical-align: middle;">
+    </ion-item>
+    <ion-item class="list2 bigger alc">
+      <br>{{mieidati.NomePG}} {{mieidati.CognomePG}}
+    </ion-item>
+    <ion-item class="list3 bigger alc">
+      <br>{{mieidati.gg}}/{{mieidati.mm}}/{{mieidati.aaaa}}
+    </ion-item>
+    <ion-item class="list4 bigger alc">
+      <br>{{mieidati.nomespecial}}
+    </ion-item>
+  </ion-list>
+  <!---
   <ion-grid>
     <ion-row>
       <ion-col col-1>&nbsp;</ion-col>
-      <ion-col col-6 class="alc"><img  class="myimg" [src]="myimg" style="vertical-align: middle;"></ion-col>
+      <ion-col col-6 class="alc"></ion-col>
       <ion-col col-5>&nbsp;</ion-col>
     </ion-row>
     <ion-row>&nbsp;</ion-row>
@@ -48,38 +63,17 @@
     <ion-row>&nbsp;</ion-row>
     <ion-row>&nbsp;</ion-row>
 
-    <!--
-    <ion-row>
-    <ion-col class="bigger">{{mieidati.nomeprofessione}}</ion-col>
-    </ion-row>
-    -->
+
     <ion-row>
       <ion-col class="bigger alc">{{mieidati.nomespecial}}</ion-col>
     </ion-row>
 
 
-<!----
-    <ion-row>
-      <ion-col>Sanità mentale</ion-col>
-      <ion-col>{{mieidati.Sanita}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Sanità mentale</ion-col>
-      <ion-col>{{mieidati.Sanita}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Conoscenza dei Miti</ion-col>
-      <ion-col>{{mieidati.Miti}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>Salute</ion-col>
-      <ion-col>{{mieidati.PF}}</ion-col>
-    </ion-row>
------>
+
 
   </ion-grid>
 
-
+--->
 
 </ion-content>
 

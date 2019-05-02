@@ -31,10 +31,26 @@ page-home {
   }
 
   .home2-background {
-    background-image: url('/assets/imgs/home.jpg') ;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-image: url('/assets/imgs/home.jpg') ; */
+    /* background-repeat: no-repeat;  */
+    /* background-size: cover; */
     //background-color: transparent;
-    //color: #FFFFFF;
+    background-color: #f2db97;
+  }
+  .list1 {
+    background-image: url('/assets/imgs/home1.png') ;
+    background-size: cover;
+  }
+  .list2 {
+    background-image: url('/assets/imgs/home2.png') ;
+    background-size: cover;
+  }
+  .list3 {
+    background-image: url('/assets/imgs/home3.png') ;
+    background-size: cover;
+  }
+  .list4 {
+    background-image: url('/assets/imgs/home4.png') ;
+    background-size: cover;
   }
 }

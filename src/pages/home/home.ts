@@ -24,7 +24,7 @@ export class HomePage {
 
   myimg = 'assets/imgs/nopicture.gif' ;
 
-  oggetto = '';
+  
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
