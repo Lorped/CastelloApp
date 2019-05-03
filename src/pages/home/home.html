@@ -21,7 +21,7 @@
 
 </ion-header>
 
-
+<!-----
 <ion-content no-padding class="home2-background">
   <ion-list >
     <ion-item class="list1">
@@ -38,56 +38,79 @@
       <br>{{mieidati.nomespecial}}<br><br>
     </ion-item>
   </ion-list>
-  <!---
+  </ion-content>
+----->
+<ion-content no-padding style="background-color: #eed794;">
   <ion-grid>
     <ion-row>
       <ion-col col-1>&nbsp;</ion-col>
-      <ion-col col-6 class="alc"></ion-col>
-      <ion-col col-5>&nbsp;</ion-col>
+      <ion-col col-7 >
+        <img  class="backimg" src="/assets/imgs/back2.png" >
+        <ion-grid padding=10 style="padding-bottom: 0px;">
+          <ion-row>
+            <img  class="myimg2" [src]="myimg" style="vertical-align: middle;">
+          </ion-row>
+        </ion-grid>
+
+
+      </ion-col>
+      <ion-col col-1>&nbsp;</ion-col>
+      <ion-col col-2 >
+        <ion-grid padding=1>
+          <ion-row >
+            <ion-col>
+              <ion-icon class="bigicon" name="square-outline" style="background-color: #ffffff;"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-icon class="bigicon" name="square-outline" style="background-color: #ffffff;"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-icon class="bigicon" name="square-outline" style="background-color: #ffffff;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col col-1>&nbsp;</ion-col>
     </ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>
-      <ion-col class="bigger alc">{{mieidati.NomePG}} {{mieidati.CognomePG}}</ion-col>
+    <ion-row style="background-color: #ffffff; margin-bottom: 2px; margin-left: 5px; margin-right: 5px;">
+      <ion-col>
+        <ion-grid style="border-width: 5px; border-style: solid;">
+          <ion-row>
+            <ion-col>
+                <span class="myfont">Nome</span>
+                <br><span class="bigger alc">{{mieidati.NomePG}} {{mieidati.CognomePG}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
     </ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>
-      <ion-col class="bigger alc">{{mieidati.gg}}/{{mieidati.mm}}/{{mieidati.aaaa}}</ion-col>
+    <ion-row style="background-color: #ffffff; margin-bottom: 2px; margin-left: 5px; margin-right: 5px;">
+      <ion-col>
+        <ion-grid style="border-width: 5px; border-style: solid;">
+          <ion-row >
+            <ion-col>
+                <span class="myfont">Data di Nascita</span>
+                <br><span class="bigger alc">{{mieidati.gg}}/{{mieidati.mm}}/{{mieidati.aaaa}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
     </ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-    <ion-row>&nbsp;</ion-row>
-
-
-    <ion-row>
-      <ion-col class="bigger alc">{{mieidati.nomespecial}}</ion-col>
+    <ion-row style="background-color: #ffffff; margin-left: 5px; margin-right: 5px;">
+      <ion-col>
+        <ion-grid style="border-width: 5px; border-style: solid;">
+          <ion-row>
+            <ion-col>
+                <span class="myfont">Professione</span>
+                <br><span class="bigger alc">{{mieidati.nomespecial}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
     </ion-row>
-
-
-
-
   </ion-grid>
-
---->
-
 </ion-content>
-
-<!-----
-<ion-footer no-border>
-
-
-<ion-grid style="height:100px; padding-bottom:0px;" >
-<ion-row style="height:100%; padding-bottom:0px;">
-  <ion-col col-8 > <img class="bottom-img" src="/assets/imgs/antichi.png"> </ion-col>
-    <ion-col col-4 > &nbsp;</ion-col>
-</ion-row>
-</ion-grid>
-
-</ion-footer>
------>

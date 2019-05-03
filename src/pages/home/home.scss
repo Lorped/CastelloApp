@@ -4,8 +4,8 @@ page-home {
 
       width: auto; */
       width: auto;
-      max-width: 150px;
-      height: 150px;
+      /* max-width: 150px;
+      height: 150px; */
       /** position: absolute;**/
       margin-top: 0;
       bottom: 0;
@@ -13,11 +13,11 @@ page-home {
       right: 0;
       /*margin: auto; */
   }
-  .myimg {
 
-      margin-top: 40px !important;
-      margin-left: 40px !important;
-
+  .myimg2 {
+      width: auto !important;
+      height: 80% ;
+      z-index: 99;
   }
 
   .bottom-img{
@@ -26,7 +26,7 @@ page-home {
   }
 
   .bigger {
-      font-size: 1.5em;
+      font-size: 1.3em;
       color: #000000;
   }
 
@@ -37,20 +37,24 @@ page-home {
     //background-color: transparent;
     background-color: #f2db97;
   }
-  .list1 {
-    background-image: url('/assets/imgs/home1.png') ;
-    background-size: cover;
+
+
+  .backimg {
+    position: absolute;
+    width: auto !important;
+    top: 0px;
+    left: 0px;
   }
-  .list2 {
-    background-image: url('/assets/imgs/home2.png') ;
-    background-size: cover;
+
+
+  .myfont {
+    font-family: 'brush' !important;
+    font-size: 1.8em;
+    color: #000000;
   }
-  .list3 {
-    background-image: url('/assets/imgs/home3.png') ;
-    background-size: cover;
+
+  .bigicon {
+    font-size: 2.5em !important;
   }
-  .list4 {
-    background-image: url('/assets/imgs/home4.png') ;
-    background-size: cover;
-  }
+
 }
