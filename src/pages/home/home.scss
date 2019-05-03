@@ -1,7 +1,6 @@
 page-home {
   img {
       /* max-height: 150px;
-
       width: auto; */
       width: auto;
       /* max-width: 150px;
@@ -13,6 +12,7 @@ page-home {
       right: 0;
       /*margin: auto; */
   }
+  
 
   .myimg2 {
       width: auto !important;
@@ -42,8 +42,8 @@ page-home {
   .backimg {
     position: absolute;
     width: auto !important;
-    top: 0px;
-    left: 0px;
+    top: 0px !important;
+    left: 0px !important;
   }
 
 
