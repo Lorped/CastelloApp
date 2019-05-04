@@ -61,6 +61,19 @@ if ($scan != "" && $IDutente != "") {
     $oldsan=$res2['Sanita'];
     $oldmiti=$res2['Miti'];
     $oldpf=$res2['PF'];
+    $IDspecial=$res2['$IDspecial'];
+
+    if ( $IDspecial == 16 )  {    /** professore **/
+      $deltasan = $deltasan-1;
+      if ($deltasan < 0) {
+        $deltasan = 0 ;
+      }
+    }
+    $MAXpf = 3;
+    if ( $IDspecial == 9 ) {  /** forze speciali **/
+      $MAXpf = 5;
+    }
+
 
     $newsan=$oldsan+$deltasan;
     if ($newsan > 10) {$newsan=10; }
@@ -70,7 +83,7 @@ if ($scan != "" && $IDutente != "") {
     if ($newmiti < 0) {$newmiti=0; }
     if ($newsan> 10-$newmiti) { $newsan=10-$newmiti ;}
     $newpf=$oldpf+$deltapf;
-    if ($newpf > 5) {$newpf=5; }
+    if ($newpf > $MAXpf) {$newpf=$MAXpf; }
     if ($newpf < 0) {$newpf=0; }
 
     $MySql9 = "UPDATE personaggi SET Sanita = $newsan  , Miti = $newmiti , pf = $newpf WHERE IDutente=$IDutente" ;

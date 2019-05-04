@@ -180,20 +180,31 @@ if ( $IDutente != "" && $scan !="" && $IDprofessione != ""  && $IDspecial != "" 
     }
 
     $MySql9 = "SELECT * FROM personaggi  WHERE IDutente=$IDutente" ;
-    $Result9=mysql_query($MySql9);
-    $res9=mysql_fetch_array($Result9);
-    $oldsan=$res9['Sanita'];
-    $oldmiti=$res9['Miti'];
+    $Result9 = mysql_query($MySql9);
+    $res9 = mysql_fetch_array($Result9);
+    $oldsan = $res9['Sanita'];
+    $oldmiti = $res9['Miti'];
+    $oldpf = $res9['PF'];
+    $IDspecial = $res9['$IDspecial'];
+
+    $MAXpf = 3;
+    if ( $IDspecial == 9 ) {  /** forze speciali **/
+      $MAXpf = 5;
+    }
+
 
     $newsan=$oldsan+$deltasan;
-    if ($newsan > 10) {$newsan=10; }
-    if ($newsan < 0) {$newsan=0; }
+    if ($newsan > 10) {$newsan = 10; }
+    if ($newsan < 0) {$newsan = 0; }
     $newmiti=$oldmiti+$deltamiti;
-    if ($newmiti > 10) {$newmiti=10; }
-    if ($newmiti < 0) {$newmiti=0; }
-    if ($newsan> 10-$newmiti) { $newsan=10-$newmiti ;}
+    if ($newmiti > 10) {$newmiti = 10; }
+    if ($newmiti < 0) {$newmiti = 0; }
+    if ($newsan > 10-$newmiti) { $newsan = 10 - $newmiti ;}
+    $newpf=$oldpf+$deltapf;
+    if ($newpf > $MAXpf) {$newpf = $MAXpf; }
+    if ($newpf < 0) {$newpf=0; }
 
-    $MySql9 = "UPDATE personaggi SET Sanita = $newsan  , Miti = $newmiti WHERE IDutente=$IDutente" ;
+    $MySql9 = "UPDATE personaggi SET Sanita = $newsan  , Miti = $newmiti , pf = $newpf WHERE IDutente=$IDutente" ;
     mysql_query($MySql9);
 
     $newout = [

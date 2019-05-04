@@ -16,7 +16,6 @@
 <ion-content class="master" padding>
 
 
-
     <ion-row >
       <ion-col style="color:#FF0000; text-align: center; font-size: 1.1em;"><h3 class="mypad2">{{nome}}</h3></ion-col>
     </ion-row>
@@ -33,6 +32,11 @@
     <ion-row *ngIf="deltamiti > 0">
       <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" >Hai <span style="color:#00ff00;">acquisito</span> {{deltamiti}} punto di Conoscenza dei Miti</ion-col>
     </ion-row>
-
+    <ion-row *ngIf="deltapf < 0">
+      <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" >Hai <span style="color:#ff0000;">perso</span> {{-deltapf}} punto/i Vita</ion-col>
+    </ion-row>
+    <ion-row *ngIf="deltapf > 0">
+      <ion-col style="color:#FFFFFF; text-align: center; font-size: 1.1em;" >Hai <span style="color:#00ff00;">guadagnato</span> {{deltapf}} punto/i Vita</ion-col>
+    </ion-row>
 
 </ion-content>
