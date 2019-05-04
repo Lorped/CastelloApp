@@ -42,12 +42,12 @@ if (isset($postdata) && $email != "" && $password !="" ) {
 
     $IDutente = $res['IDutente'];
 
-    $MySql = "SELECT *  FROM personaggi
-          LEFT JOIN professioni ON personaggi.IDprofessione=professioni.IDprofessione
-          LEFT JOIN specializzazione ON personaggi.IDspecial=specializzazione.IDspecial
-          LEFT JOIN bonusprof ON personaggi.IDbp=bonusprof.IDbp
-
-          WHERE IDutente = '$IDutente' ";
+    $MySql = "SELECT * FROM personaggi
+      LEFT JOIN professioni ON personaggi.IDprofessione = professioni.IDprofessione
+      LEFT JOIN specializzazione ON personaggi.IDspecial = specializzazione.IDspecial
+      LEFT JOIN bonusprof ON personaggi.IDbp = bonusprof.IDbp
+      LEFT JOIN xspec ON personaggi.xspecpg = xspec.IDspecialx
+      WHERE IDutente = '$IDutente' ";
 
     $Result = mysql_query($MySql);
     if ( $res = mysql_fetch_array($Result,MYSQL_ASSOC)   ) {

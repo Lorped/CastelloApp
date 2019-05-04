@@ -185,10 +185,11 @@ if ( $IDutente != "" && $scan !="" && $IDprofessione != ""  && $IDspecial != "" 
     $oldsan = $res9['Sanita'];
     $oldmiti = $res9['Miti'];
     $oldpf = $res9['PF'];
-    $IDspecial = $res9['$IDspecial'];
+    $IDspecial = $res9['IDspecial'];
+    $xspecpg = $res9['xspecpg'];
 
     $MAXpf = 3;
-    if ( $IDspecial == 9 ) {  /** forze speciali **/
+    if ( $IDspecial == 9 || $xspecpg == 9 ) {  /** forze speciali o studenti con bonus **/
       $MAXpf = 5;
     }
 

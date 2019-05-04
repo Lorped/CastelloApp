@@ -27,16 +27,19 @@
         <ion-col class="bigger alc">{{mieidati.PF}}</ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>Bonus professione</ion-col>
+        <ion-col>Competenze</ion-col>
       </ion-row>
       <ion-row>
         <ion-col class="bigger">{{mieidati.descbp}}</ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>Bonus specializzazione</ion-col>
+        <ion-col>Bonus professione</ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row *ngIf="mieidati.IDspecial != 17 ">
         <ion-col class="bigger">{{mieidati.bonus}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="mieidati.IDspecial == 17 ">
+        <ion-col class="bigger">{{mieidati.xbonus}}</ion-col>
       </ion-row>
 
 

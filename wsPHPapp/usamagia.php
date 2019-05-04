@@ -61,16 +61,17 @@ if ($scan != "" && $IDutente != "") {
     $oldsan=$res2['Sanita'];
     $oldmiti=$res2['Miti'];
     $oldpf=$res2['PF'];
-    $IDspecial=$res2['$IDspecial'];
+    $IDspecial=$res2['IDspecial'];
+    $xspecpg=$res2['xspecpg'];
 
-    if ( $IDspecial == 16 )  {    /** professore **/
+    if ( $IDspecial == 16 || $xspecpg == 16 )  {    /** professore o studente con abilità**/
       $deltasan = $deltasan-1;
       if ($deltasan < 0) {
         $deltasan = 0 ;
       }
     }
     $MAXpf = 3;
-    if ( $IDspecial == 9 ) {  /** forze speciali **/
+    if ( $IDspecial == 9 || $xspecpg == 9 ) {  /** forze speciali o studente con abilità**/
       $MAXpf = 5;
     }
 
