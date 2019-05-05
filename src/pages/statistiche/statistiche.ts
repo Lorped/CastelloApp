@@ -41,7 +41,8 @@ export class StatistichePage {
     this.mieidati=this.user.getinfo();
     //console.log(this.mieidati);
 
-    this.events.subscribe('obj:scanned', (user) => {
+    this.events.subscribe('obj:scanned', (data) => {
+      console.log(data);
       this.user.getusr()
       .subscribe( (res: any) => {
         //console.log(res);

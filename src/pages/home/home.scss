@@ -12,18 +12,19 @@ page-home {
       right: 0;
       /*margin: auto; */
   }
-  
+
+  .back2 {
+    background: url('/assets/imgs/paper4.png') ;
+    background-repeat: repeat;
+  }
 
   .myimg2 {
       width: auto !important;
-      /** height: 80% ; **/
       z-index: 99;
+      display: block;
   }
 
-  .bottom-img{
-      bottom: 0px !important ;
-      margin-bottom: 0px;
-  }
+
 
   .bigger {
       font-size: 1.3em;
@@ -31,11 +32,11 @@ page-home {
   }
 
   .home2-background {
-    /* background-image: url('/assets/imgs/home.jpg') ; */
-    /* background-repeat: no-repeat;  */
+    background-image: url('/assets/imgs/paper3.png') ;
+    background-repeat: repeat;
     /* background-size: cover; */
-    //background-color: transparent;
-    background-color: #f2db97;
+
+    /* background-color: ##eed794; */
   }
 
 

@@ -22,29 +22,14 @@
 </ion-header>
 
 <!-----
-<ion-content no-padding class="home2-background">
-  <ion-list >
-    <ion-item class="list1">
-      <img  class="myimg" [src]="myimg" style="vertical-align: middle;">
-    </ion-item>
 
-    <ion-item class="list2 bigger alc">
-      <br>{{mieidati.NomePG}} {{mieidati.CognomePG}}<br><br>
-    </ion-item>
-    <ion-item class="list3 bigger alc">
-      <br>{{mieidati.gg}}/{{mieidati.mm}}/{{mieidati.aaaa}}<br><br>
-    </ion-item>
-    <ion-item class="list4 bigger alc">
-      <br>{{mieidati.nomespecial}}<br><br>
-    </ion-item>
-  </ion-list>
-  </ion-content>
 ----->
-<ion-content no-padding style="background-color: #eed794;">
+<ion-content no-padding class="home2-background">
   <ion-grid>
     <ion-row>
       <ion-col col-1>&nbsp;</ion-col>
-      <ion-col col-7 >
+      <ion-col col-6 >
+        <!-----
         <img  class="backimg" src="/assets/imgs/back2.png" >
         <ion-grid style="padding-bottom: 0px; padding-top:10px;" >
           <ion-row>
@@ -55,10 +40,18 @@
             <ion-col col-3>&nbsp;</ion-col>
           </ion-row>
         </ion-grid>
+        ---->
+        <ion-grid style="border-width: 15px; border-style: solid; border-color:#f7f3e1;" no-padding >
+          <ion-row class="alc back2" >
+            <ion-col>
+              <img class="myimg2" [src]="myimg" >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
 
       </ion-col>
-      <ion-col col-1>&nbsp;</ion-col>
+      <ion-col col-2>&nbsp;</ion-col>
       <ion-col col-2 >
         <ion-grid padding=1>
           <ion-row >

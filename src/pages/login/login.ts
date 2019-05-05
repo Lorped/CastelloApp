@@ -117,24 +117,9 @@ export class LoginPage {
     pushObject.on('notification').subscribe((notification: any) => {
 
       //console.log("any notification");
-      this.events.publish('obj:scanned', user);
+      this.events.publish('obj:scanned', 'Dorefresh');
       //console.log(notification.additionalData.foreground);
       //console.log(notification.additionalData);
-      /*
-      if (notification.additionalData.foreground) {
-        alert('Received a notification ' + notification);
-        this.events.publish('obj:scanned', user);
-      } else {
-        //if user NOT using app and push notification comes
-        //TODO: Your logic on click of push notification directly
-
-        //console.log("Push notification clicked");
-        this.events.publish('obj:scanned', user);
-      }
-      */
-
-
-
 
 		});
 
