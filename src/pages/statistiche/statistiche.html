@@ -10,10 +10,15 @@
     <ion-title>Statistiche</ion-title>
   </ion-navbar>
 
+
 </ion-header>
 
 <ion-content padding class="home-background">
 
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      
       <ion-row>
         <ion-col col-7>Sanità mentale</ion-col>
         <ion-col class="bigger alc">{{mieidati.Sanita}}</ion-col>

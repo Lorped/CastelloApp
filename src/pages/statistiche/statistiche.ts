@@ -42,7 +42,7 @@ export class StatistichePage {
     //console.log(this.mieidati);
 
     this.events.subscribe('obj:scanned', (data) => {
-      console.log(data);
+      //console.log(data);
       this.user.getusr()
       .subscribe( (res: any) => {
         //console.log(res);
@@ -55,6 +55,16 @@ export class StatistichePage {
 
     });
 
+  }
+
+  doRefresh(refresher) {
+    this.user.getusr()
+    .subscribe( (res: any) => {
+      this.mieidati.Sanita=res.Sanita;
+      this.mieidati.Miti=res.Miti;
+      this.mieidati.PF=res.PF;
+    });
+    refresher.complete();
   }
 
   ionViewDidLoad() {
