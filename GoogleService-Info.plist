@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>639056394320-7h29374atr85tvbvc3df25e98ng5afhh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.639056394320-7h29374atr85tvbvc3df25e98ng5afhh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAugb-b3qs2YYvueAyRkuMCZpLc1xO6Fx0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>639056394320</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>castello.gdr.larp</string>
+	<key>PROJECT_ID</key>
+	<string>castello-a99be</string>
+	<key>STORAGE_BUCKET</key>
+	<string>castello-a99be.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:639056394320:ios:514ae84f89b277e1</string>
+	<key>DATABASE_URL</key>
+	<string>https://castello-a99be.firebaseio.com</string>
+</dict>
+</plist>
