@@ -221,10 +221,32 @@ if ( $IDutente != "" && $scan !="" && $IDprofessione != ""  && $IDspecial != "" 
 
 
   } else {
-    header("HTTP/1.1 404 Unauthorized");
+    /* who are you?*/
+    $newout = [
+      "nome" => 'Sconosciuto' ,
+      "descrizione" => 'Oggetto Sconosciuto' ,
+      "deltasan" => 0 ,
+      "deltamiti" => 0 ,
+      "deltapf" => 0
+    ];
+
+      $output = json_encode($newout);
+      echo $output;
+    //header("HTTP/1.1 404 Unauthorized");
   }
 } else {
-    header("HTTP/1.1 401 Unauthorized");
+  /* who are you?*/
+  $newout = [
+    "nome" => 'Sconosciuto' ,
+    "descrizione" => 'Oggetto Sconosciuto' ,
+    "deltasan" => 0 ,
+    "deltamiti" => 0 ,
+    "deltapf" => 0
+  ];
+
+    $output = json_encode($newout);
+    echo $output;
+  //header("HTTP/1.1 404 Unauthorized");
 
     /*
     $sent= [
